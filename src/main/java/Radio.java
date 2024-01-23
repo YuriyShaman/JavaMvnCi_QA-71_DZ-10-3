@@ -24,14 +24,14 @@ public class Radio {
         return carrentStation;
     }
 
-    public void setCarrentStation(int carentStation) {
-        if (carentStation < 0) {
+    public void setCarrentStation(int carrentStation) {
+        if (carrentStation < 0) {
             return;
         }
         if (carrentStation > 9) {
             return;
         }
-        this.carrentStation = carentStation;
+        this.carrentStation = carrentStation;
     }
 
     private int carrentVolume;
