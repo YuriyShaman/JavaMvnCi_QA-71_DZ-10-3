@@ -1,23 +1,32 @@
 public class Radio {
 
+    private int minCarrentStation = 0;
+    private int carrentStation = minCarrentStation;
+    private int maxCarrentStation = 9;
 
-    private int carrentStation;
+    public Radio(int minCarrentStation, int maxCarrentStation) {
 
-    public void next() {
+        this.minCarrentStation = minCarrentStation;
+        this.maxCarrentStation = maxCarrentStation;
+        this.carrentStation = minCarrentStation;
 
-        if (carrentStation != 9) {      // Если станция не 9 (максиьальная) ...
-            carrentStation++;          // Прибавляем 1 к текущему номерустанции
-        } else {
-            carrentStation = 0;           // Иначе, идем на нулевую станцию
-        }
+        System.out.println("Макс. Радиостанция  № " + maxCarrentStation);
+        System.out.println("Мин. Радиостанция  №  " + minCarrentStation);
     }
 
-    public void prev() {
-        if (carrentStation != 0) {      // Если станция не 0 ...
-            carrentStation--;           // Уменьшаем ее номер на 1
-        } else {
-            carrentStation = 9;             // Иначе, идем на 9-ю
-        }
+    public Radio(int size) {
+        maxCarrentStation = minCarrentStation + size;
+
+
+        System.out.println("Макс. Радиостанция  № " + maxCarrentStation);
+    }
+
+    public int getMinCarrentStation() {
+        return minCarrentStation;
+    }
+
+    public int getMaxCarrentStation() {
+        return maxCarrentStation;
     }
 
     public int getCarrentStation() {
@@ -25,40 +34,62 @@ public class Radio {
     }
 
     public void setCarrentStation(int carrentStation) {
-        if (carrentStation < 0) {
+        if (carrentStation < minCarrentStation) {
             return;
         }
-        if (carrentStation > 9) {
+        if (carrentStation > maxCarrentStation) {
             return;
         }
+
         this.carrentStation = carrentStation;
     }
+
+    public void next() {
+        if (carrentStation != maxCarrentStation) {
+            carrentStation++;
+        } else {
+            carrentStation = minCarrentStation;
+        }
+    }
+
+    public void prev() {
+        if (carrentStation != minCarrentStation) {
+            carrentStation--;
+        } else {
+            carrentStation = maxCarrentStation;
+        }
+    }
+
+
+
 
     private int carrentVolume;
 
     public void up() {
-        if (carrentVolume != 100) {      // Если громкость не 100 (Максимаиьальная) ...
-            carrentVolume++;          // Прибавляем 1 к ее текущему значению
+        if (carrentVolume < 100) {
+            carrentVolume++;
         } else {
-            carrentVolume = 100;           // Иначе, стоим на 100
+            carrentVolume = 100;
         }
     }
+
     public void down() {
-        if (carrentVolume != 0) {      // Если грмкость не 0
-            carrentVolume--;          // Уменьшаем на 1 от текущего значения громкости
+        if (carrentVolume > 0) {
+            carrentVolume--;
         } else {
-            carrentVolume = 0;           // Иначе, стоим на 0
+            carrentVolume = 0;
         }
     }
 
     public int getCarrentVolume() {
         return carrentVolume;
     }
+
     public void setCarrentVolume(int carrentVolume) {
-        if (carrentVolume < 0) {
+        if (carrentVolume > 100) {
             return;
         }
-        if (carrentVolume > 100) {
+        if (carrentVolume < 0) {
             return;
         }
         this.carrentVolume = carrentVolume;
