@@ -52,8 +52,8 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test //*********************
-    public void testPrevStations_Up9prev() {
+    @Test 
+    public void test55PrevStations_Up9prev() {
         Radio radio = new Radio();
         radio.setCarrentStation(10);
         radio.prev();
