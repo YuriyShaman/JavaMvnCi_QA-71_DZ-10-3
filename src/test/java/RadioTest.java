@@ -58,7 +58,7 @@ public class RadioTest {
         radio.setCarrentStation(10);
         radio.prev();
         int actual = radio.getCarrentStation();
-        int expected = 19;
+        int expected = 9;
         Assertions.assertEquals(expected, actual);
     }
 
