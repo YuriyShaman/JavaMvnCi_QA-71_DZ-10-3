@@ -1,10 +1,9 @@
-public class Radio {
-
+public class RadioWithParametr {
     private int minCarrentStation = 0;
     private int carrentStation = minCarrentStation;
     private int maxCarrentStation = 9;
 
-    public Radio(int minCarrentStation, int maxCarrentStation) {
+    public RadioWithParametr(int minCarrentStation, int maxCarrentStation) {
 
         this.minCarrentStation = minCarrentStation;
         this.maxCarrentStation = maxCarrentStation;
@@ -14,7 +13,7 @@ public class Radio {
         System.out.println("Мин. Радиостанция  №  " + minCarrentStation);
     }
 
-    public Radio(int size) {
+    public RadioWithParametr(int size) {
         maxCarrentStation = minCarrentStation + size;
 
 
@@ -59,8 +58,6 @@ public class Radio {
             carrentStation = maxCarrentStation;
         }
     }
-
-
 
 
     private int carrentVolume;
