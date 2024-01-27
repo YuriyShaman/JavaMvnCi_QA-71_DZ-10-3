@@ -1,13 +1,43 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class RadioTestWithoutParametrs {
+public class RadioWithParametrTest {
+
 
     @Test
-    public void testNextStations_0next() {
-        RadioWithoutParametrs radio = new RadioWithoutParametrs();
-        radio.setCarrentStation(5);
+    public void prevCarStTransitLoverLimit_1() {
+        RadioWithParametr radio = new RadioWithParametr(10);
+        radio.setCarrentStation(1);
+        radio.prev();
+        int actual = radio.getCarrentStation();
+        int expected = 10;
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void prevCarStTransitLover_0() {
+        RadioWithParametr radio = new RadioWithParametr(9);
         radio.setCarrentStation(0);
+        radio.prev();
+        int actual = radio.getCarrentStation();
+        int expected = 9;
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void prevCarStNegativ() {
+        RadioWithParametr radio = new RadioWithParametr(8);
+        radio.setCarrentStation(-1);
+        radio.prev();
+        int actual = radio.getCarrentStation();
+        int expected = 8;
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void nextCarStTransitUpperLimit() {
+        RadioWithParametr radio = new RadioWithParametr(10);
+        radio.setCarrentStation(10);
         radio.next();
         int actual = radio.getCarrentStation();
         int expected = 1;
@@ -15,70 +45,49 @@ public class RadioTestWithoutParametrs {
     }
 
     @Test
-    public void testNextStations_8next() {
-        RadioWithoutParametrs radio = new RadioWithoutParametrs();
-        radio.setCarrentStation(5);
-        radio.setCarrentStation(8);
+    public void nextCarStBeyondLimit() {
+        RadioWithParametr radio = new RadioWithParametr(9);
+        radio.setCarrentStation(19);
         radio.next();
         int actual = radio.getCarrentStation();
-        int expected = 9;
+        int expected = 2;//2?
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void testNextStations_9next() {
-        RadioWithoutParametrs radio = new RadioWithoutParametrs();
-        radio.setCarrentStation(9);
-        radio.next();
+    public void prevCarStBeyondLimit() {
+        RadioWithParametr radio = new RadioWithParametr(8);
+        radio.setCarrentStation(15);
+        radio.prev();
         int actual = radio.getCarrentStation();
-        int expected = 0;
+        int expected = 8;
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
-    public void testPrevStations_0prev() {
-        RadioWithoutParametrs radio = new RadioWithoutParametrs();
-        radio.setCarrentStation(5);
+       @Test
+    public void NextCarSt_0() {
+        RadioWithParametr radio = new RadioWithParametr(9);
         radio.setCarrentStation(0);
-        radio.prev();
+        radio.next();
         int actual = radio.getCarrentStation();
-        int expected = 9;
+        int expected = 2;//2?
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void testPrevStations_1prev() {
-        RadioWithoutParametrs radio = new RadioWithoutParametrs();
-        radio.setCarrentStation(1);
-        radio.prev();
+    public void NextCarStNeganiv() {
+        RadioWithParametr radio = new RadioWithParametr(8);
+        radio.setCarrentStation(-1);
+        radio.next();
         int actual = radio.getCarrentStation();
-        int expected = 0;
+        int expected = 2;//2?
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
-    public void testPrevStations_Up9prev() {
-        RadioWithoutParametrs radio = new RadioWithoutParametrs();
-        radio.setCarrentStation(11);
-        radio.prev();
-        int actual = radio.getCarrentStation();
-        int expected = 9;
-        Assertions.assertEquals(expected, actual);
-    }
 
     @Test
-    public void testPrevStations_Lou0prev() {
-        RadioWithoutParametrs radio = new RadioWithoutParametrs();
-        radio.setCarrentStation(-11);
-        radio.prev();
-        int actual = radio.getCarrentStation();
-        int expected = 9;
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testUpVolume_0up() {
-        RadioWithoutParametrs radio = new RadioWithoutParametrs();
+    public void UpVolume_0() {
+        RadioWithParametr radio = new RadioWithParametr(5);
         radio.setCarrentVolume(0);
         radio.up();
         int actual = radio.getCarrentVolume();
@@ -87,9 +96,9 @@ public class RadioTestWithoutParametrs {
     }
 
     @Test
-    public void testUpVolume_9Up() {
-        RadioWithoutParametrs radio = new RadioWithoutParametrs();
-        radio.setCarrentVolume(101);
+    public void UpVolume_110() {
+        RadioWithParametr radio = new RadioWithParametr(5);
+        radio.setCarrentVolume(110);
         radio.up();
         int actual = radio.getCarrentVolume();
         int expected = 1;
@@ -97,8 +106,8 @@ public class RadioTestWithoutParametrs {
     }
 
     @Test
-    public void testUpVolume_100up() {
-        RadioWithoutParametrs radio = new RadioWithoutParametrs();
+    public void UpVolume_100() {
+        RadioWithParametr radio = new RadioWithParametr(5);
         radio.setCarrentVolume(100);
         radio.up();
         int actual = radio.getCarrentVolume();
@@ -107,8 +116,8 @@ public class RadioTestWithoutParametrs {
     }
 
     @Test
-    public void testDowneVolume_0down() {
-        RadioWithoutParametrs radio = new RadioWithoutParametrs();
+    public void downeVolume_0() {
+        RadioWithParametr radio = new RadioWithParametr(5);
         radio.setCarrentVolume(0);
         radio.down();
         int actual = radio.getCarrentVolume();
@@ -118,7 +127,7 @@ public class RadioTestWithoutParametrs {
 
     @Test
     public void testDowneVolume_100down() {
-        RadioWithoutParametrs radio = new RadioWithoutParametrs();
+        RadioWithParametr radio = new RadioWithParametr(5);
         radio.setCarrentVolume(100);
         radio.down();
         int actual = radio.getCarrentVolume();
@@ -128,7 +137,7 @@ public class RadioTestWithoutParametrs {
 
     @Test
     public void testDowneVolume_negdown() {
-        RadioWithoutParametrs radio = new RadioWithoutParametrs();
+        RadioWithParametr radio = new RadioWithParametr(5);
         radio.setCarrentVolume(-1);
         radio.down();
         int actual = radio.getCarrentVolume();

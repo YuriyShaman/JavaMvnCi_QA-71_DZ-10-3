@@ -1,33 +1,26 @@
 public class RadioWithParametr {
-    private int minCarrentStation = 0;
+
+    private int maxCarrentStation = 10;
+    private int minCarrentStation = 1;
     private int carrentStation = minCarrentStation;
-    private int maxCarrentStation = 9;
 
-    public RadioWithParametr(int minCarrentStation, int maxCarrentStation) {
-
-        this.minCarrentStation = minCarrentStation;
-        this.maxCarrentStation = maxCarrentStation;
-        this.carrentStation = minCarrentStation;
-
-        System.out.println("Макс. Радиостанция  № " + maxCarrentStation);
-        System.out.println("Мин. Радиостанция  №  " + minCarrentStation);
-    }
 
     public RadioWithParametr(int size) {
-        maxCarrentStation = minCarrentStation + size;
+        maxCarrentStation = minCarrentStation + size - 1;
 
+        this.maxCarrentStation = maxCarrentStation;
+        this.minCarrentStation = minCarrentStation;
+        this.carrentStation = minCarrentStation;
 
-        System.out.println("Макс. Радиостанция  № " + maxCarrentStation);
-    }
-
-    public int getMinCarrentStation() {
-        return minCarrentStation;
+        System.out.println("Заданное Число Радиостанций   " + maxCarrentStation);
     }
 
     public int getMaxCarrentStation() {
-        return maxCarrentStation;
+               return maxCarrentStation;
     }
-
+    public int getMinCarrentStation() {
+        return minCarrentStation;
+    }
     public int getCarrentStation() {
         return carrentStation;
     }
@@ -41,6 +34,8 @@ public class RadioWithParametr {
         }
 
         this.carrentStation = carrentStation;
+
+        System.out.println("Переключение с Радиостанции   " + carrentStation);
     }
 
     public void next() {
@@ -50,7 +45,6 @@ public class RadioWithParametr {
             carrentStation = minCarrentStation;
         }
     }
-
     public void prev() {
         if (carrentStation != minCarrentStation) {
             carrentStation--;
