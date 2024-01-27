@@ -131,10 +131,10 @@ public class RadioWithoutParametrsTest {
     @Test
     public void testDowneVolume_negdown() {
         RadioWithoutParametrs radio = new RadioWithoutParametrs();
-        radio.setCarrentVolume(50);
+        radio.setCarrentVolume(-1);
         radio.down();
         int actual = radio.getCarrentVolume();
-        int expected = 49;
+        int expected = 0;
         Assertions.assertEquals(expected, actual);
     }
 }

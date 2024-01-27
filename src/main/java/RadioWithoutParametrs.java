@@ -45,7 +45,6 @@ public class RadioWithoutParametrs {
             carrentVolume = 100;
         }
     }
-
     public void down() {
         if (carrentVolume > 0) {
             carrentVolume--;
