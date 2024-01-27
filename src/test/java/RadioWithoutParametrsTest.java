@@ -98,23 +98,23 @@ public class RadioWithoutParametrsTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test////////////////
-    public void testUpVolume_99Up() {
+    @Test
+    public void testUpVolume_105Up() {
         RadioWithoutParametrs radio = new RadioWithoutParametrs();
-        radio.setCarrentVolume(99);
+        radio.setCarrentVolume(105);
         radio.up();
         int actual = radio.getCarrentVolume();
-        int expected = 100;
+        int expected = 1;
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test////////////////
-    public void testDowneVolume_100down() {
+    @Test
+    public void testDowneVolume_105down() {
         RadioWithoutParametrs radio = new RadioWithoutParametrs();
         radio.setCarrentVolume(105);
         radio.down();
         int actual = radio.getCarrentVolume();
-        int expected =99;
+        int expected =0;
         Assertions.assertEquals(expected, actual);
     }
 
@@ -131,10 +131,10 @@ public class RadioWithoutParametrsTest {
     @Test
     public void testDowneVolume_negdown() {
         RadioWithoutParametrs radio = new RadioWithoutParametrs();
-        radio.setCarrentVolume(-1);
+        radio.setCarrentVolume(50);
         radio.down();
         int actual = radio.getCarrentVolume();
-        int expected = 0;
+        int expected = 49;
         Assertions.assertEquals(expected, actual);
     }
 }
