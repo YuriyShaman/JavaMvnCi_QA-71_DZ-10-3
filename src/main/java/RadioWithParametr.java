@@ -6,26 +6,27 @@ public class RadioWithParametr {
 
 
     public RadioWithParametr(int size) {
-        maxCarrentStation = minCarrentStation + size - 1;
 
-        this.maxCarrentStation = maxCarrentStation;
-        this.minCarrentStation = minCarrentStation;
+        maxCarrentStation = minCarrentStation + size -1;
+
         this.carrentStation = minCarrentStation;
+        this.minCarrentStation = minCarrentStation;
+        this.maxCarrentStation = maxCarrentStation;
 
-        System.out.println("Заданное Число Радиостанций   " + maxCarrentStation);
+
+        System.out.println("Заданное Число Станций    " + maxCarrentStation);
     }
 
     public int getMaxCarrentStation() {
-               return maxCarrentStation;
+        return maxCarrentStation ;
     }
-    public int getMinCarrentStation() {
-        return minCarrentStation;
+    public int getMinCarrentStation () {
+        return minCarrentStation ;
     }
     public int getCarrentStation() {
         return carrentStation;
     }
-
-    public void setCarrentStation(int carrentStation) {
+   public void setCarrentStation(int carrentStation) {
         if (carrentStation < minCarrentStation) {
             return;
         }
@@ -46,7 +47,7 @@ public class RadioWithParametr {
         }
     }
     public void prev() {
-        if (carrentStation != minCarrentStation) {
+        if (carrentStation >= minCarrentStation) {
             carrentStation--;
         } else {
             carrentStation = maxCarrentStation;

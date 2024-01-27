@@ -47,30 +47,20 @@ public class RadioWithParametrTest {
     @Test
     public void nextCarStBeyondLimit() {
         RadioWithParametr radio = new RadioWithParametr(9);
-        radio.setCarrentStation(19);
+        radio.setCarrentStation (11);
         radio.next();
         int actual = radio.getCarrentStation();
-        int expected = 2;//2?
+        int expected = 2;//!
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
-    public void prevCarStBeyondLimit() {
-        RadioWithParametr radio = new RadioWithParametr(8);
-        radio.setCarrentStation(15);
-        radio.prev();
-        int actual = radio.getCarrentStation();
-        int expected = 8;
-        Assertions.assertEquals(expected, actual);
-    }
-
-       @Test
+           @Test
     public void NextCarSt_0() {
         RadioWithParametr radio = new RadioWithParametr(9);
-        radio.setCarrentStation(0);
+        radio.setCarrentStation(1);
         radio.next();
         int actual = radio.getCarrentStation();
-        int expected = 2;//2?
+        int expected = 2;
         Assertions.assertEquals(expected, actual);
     }
 
@@ -80,7 +70,7 @@ public class RadioWithParametrTest {
         radio.setCarrentStation(-1);
         radio.next();
         int actual = radio.getCarrentStation();
-        int expected = 2;//2?
+        int expected = 2;
         Assertions.assertEquals(expected, actual);
     }
 

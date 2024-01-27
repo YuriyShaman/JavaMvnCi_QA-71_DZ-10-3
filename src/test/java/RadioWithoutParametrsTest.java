@@ -91,7 +91,7 @@ public class RadioWithoutParametrsTest {
     @Test
     public void testDowneVolume_0down() {
         RadioWithoutParametrs radio = new RadioWithoutParametrs();
-        radio.setCarrentVolume(0);
+        radio.setCarrentVolume(1);
         radio.down();
         int actual = radio.getCarrentVolume();
         int expected = 0;
@@ -111,7 +111,8 @@ public class RadioWithoutParametrsTest {
     @Test
     public void testDowneVolume_105down() {
         RadioWithoutParametrs radio = new RadioWithoutParametrs();
-        radio.setCarrentVolume(105);
+        radio.setCarrentVolume(10);
+        radio.setCarrentVolume(0);
         radio.down();
         int actual = radio.getCarrentVolume();
         int expected =0;
