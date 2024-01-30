@@ -1,32 +1,29 @@
 public class RadioWithParametr {
 
-    private int maxCarrentStation = 10;
-    private int minCarrentStation = 1;
-    private int carrentStation = minCarrentStation;
 
+    private int usMaxCarrentStation = 10;
+    private int usMinCarrentStation = 1;
+
+    int maxCarrentStation = usMaxCarrentStation -1;
+    int minCarrentStation = usMinCarrentStation -1;
+    private int carrentStation = usMinCarrentStation -1;
 
     public RadioWithParametr(int size) {
 
-        maxCarrentStation = minCarrentStation + size -1;
+        maxCarrentStation = minCarrentStation + size;
 
-        this.carrentStation = minCarrentStation;
-        this.minCarrentStation = minCarrentStation;
         this.maxCarrentStation = maxCarrentStation;
+        this.minCarrentStation = minCarrentStation;
+        this.carrentStation = minCarrentStation;
 
-
-        System.out.println("Заданное Число Станций    " + maxCarrentStation);
+        System.out.println("Заданное Число Станций        " + maxCarrentStation);
     }
 
-    public int getMaxCarrentStation() {
-        return maxCarrentStation ;
-    }
-    public int getMinCarrentStation () {
-        return minCarrentStation ;
-    }
-    public int getCarrentStation() {
+      public int getCarrentStation() {
         return carrentStation;
     }
-   public void setCarrentStation(int carrentStation) {
+
+    public void setCarrentStation(int carrentStation) {
         if (carrentStation < minCarrentStation) {
             return;
         }
@@ -43,17 +40,17 @@ public class RadioWithParametr {
         if (carrentStation != maxCarrentStation) {
             carrentStation++;
         } else {
-            carrentStation = minCarrentStation;
+            carrentStation = usMinCarrentStation;
         }
     }
+
     public void prev() {
-        if (carrentStation >= minCarrentStation) {
+        if (carrentStation != usMinCarrentStation) {
             carrentStation--;
         } else {
             carrentStation = maxCarrentStation;
         }
     }
-
 
     private int carrentVolume;
 

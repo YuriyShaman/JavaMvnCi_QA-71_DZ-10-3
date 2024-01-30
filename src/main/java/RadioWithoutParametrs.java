@@ -4,8 +4,7 @@ public class RadioWithoutParametrs {
 
     private int carrentStation;
 
-    public void next() {
-
+      public void next() {
         if (carrentStation != 9) {
             carrentStation++;
         } else {

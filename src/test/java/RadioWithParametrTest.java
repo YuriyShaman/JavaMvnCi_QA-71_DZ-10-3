@@ -6,21 +6,41 @@ public class RadioWithParametrTest {
 
     @Test
     public void prevCarStTransitLoverLimit_1() {
-        RadioWithParametr radio = new RadioWithParametr(10);
+        RadioWithParametr radio = new RadioWithParametr(8);
         radio.setCarrentStation(1);
         radio.prev();
         int actual = radio.getCarrentStation();
-        int expected = 10;
+        int expected = 8;
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void prevCarStTransitLover__Limit_1() {
+        RadioWithParametr radio = new RadioWithParametr(8);
+        radio.setCarrentStation(2);
+        radio.prev();
+        int actual = radio.getCarrentStation();
+        int expected = 1;
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void prevCarStTransitLover_0() {
-        RadioWithParametr radio = new RadioWithParametr(9);
+        RadioWithParametr radio = new RadioWithParametr(8);
         radio.setCarrentStation(0);
         radio.prev();
         int actual = radio.getCarrentStation();
-        int expected = 9;
+        int expected = -1;
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void prevCarStTransitLover_9() {
+        RadioWithParametr radio = new RadioWithParametr(8);
+        radio.setCarrentStation(9);
+        radio.prev();
+        int actual = radio.getCarrentStation();
+        int expected = -1;
         Assertions.assertEquals(expected, actual);
     }
 
@@ -30,13 +50,13 @@ public class RadioWithParametrTest {
         radio.setCarrentStation(-1);
         radio.prev();
         int actual = radio.getCarrentStation();
-        int expected = 8;
+        int expected = -1;
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void nextCarStTransitUpperLimit() {
-        RadioWithParametr radio = new RadioWithParametr(10);
+        RadioWithParametr radio = new RadioWithParametr(9);
         radio.setCarrentStation(10);
         radio.next();
         int actual = radio.getCarrentStation();
@@ -45,17 +65,17 @@ public class RadioWithParametrTest {
     }
 
     @Test
-    public void nextCarStBeyondLimit() {
+    public void NextCarSt_0() {
         RadioWithParametr radio = new RadioWithParametr(9);
-        radio.setCarrentStation (11);
+        radio.setCarrentStation(0);
         radio.next();
         int actual = radio.getCarrentStation();
-        int expected = 2;//!
+        int expected = 1;
         Assertions.assertEquals(expected, actual);
     }
 
-           @Test
-    public void NextCarSt_0() {
+    @Test
+    public void nextCarStTransitUpper_Limit() {
         RadioWithParametr radio = new RadioWithParametr(9);
         radio.setCarrentStation(1);
         radio.next();
@@ -65,19 +85,38 @@ public class RadioWithParametrTest {
     }
 
     @Test
-    public void NextCarStNeganiv() {
-        RadioWithParametr radio = new RadioWithParametr(8);
-        radio.setCarrentStation(-1);
+    public void nextCarStBeyond_Limit() {
+        RadioWithParametr radio = new RadioWithParametr(10);
+        radio.setCarrentStation (10);
         radio.next();
         int actual = radio.getCarrentStation();
-        int expected = 2;
+        int expected = 1;
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void nextCarStBeyondLimit() {
+        RadioWithParametr radio = new RadioWithParametr(10);
+        radio.setCarrentStation (11);
+        radio.next();
+        int actual = radio.getCarrentStation();
+        int expected = 1;
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void NextCarStNeganiv() {
+        RadioWithParametr radio = new RadioWithParametr(9);
+        radio.setCarrentStation(-1);
+        radio.next();
+        int actual = radio.getCarrentStation();
+        int expected = 1;
+        Assertions.assertEquals(expected, actual);
+    }
 
     @Test
     public void UpVolume_0() {
-        RadioWithParametr radio = new RadioWithParametr(5);
+        RadioWithParametr radio = new RadioWithParametr(8);
         radio.setCarrentVolume(0);
         radio.up();
         int actual = radio.getCarrentVolume();
